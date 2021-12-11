@@ -1,0 +1,35 @@
+---Create DB and name it twitter_clone---
+
+---Create User Table in twitter_Clone---
+CREATE TABLE IF NOT EXISTS `users` (
+                                         `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                                         `email` text NOT NULL,
+                                         `password` text NOT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+---Test that it works---
+INSERT INTO `users` (`email`,`password`) VALUES ('testuser1@email.com','user1pw');
+INSERT INTO `users` (`email`,`password`) VALUES ('testuser1@email.com','user2pw');
+SELECT * FROM users;
+SELECT * FROM `users` WHERE `email` = 'testuser1@email.com' LIMIT 1;
+
+---Create Tweets Table in twitter_clone---
+CREATE TABLE IF NOT EXISTS `tweets` (
+                                        `id` INT NOT NULL AUTO_INCREMENT ,
+                                        `tweet` TEXT NOT NULL ,
+                                        `user_id` INT NOT NULL ,
+                                        `datetime` DATETIME NOT NULL ,
+                                        PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
+
+---Test that it works---
+INSERT INTO `tweets` (`tweet`,`user_id`,`datetime`) VALUES ('My first tweet',1,CONVERT_TZ(NOW(), '+00:00', '+05:00'));
+SELECT * FROM tweets;
+
+---Create Follows Table in twitter_clone---
+CREATE TABLE IF NOT EXISTS follows` (
+                                        `id` INT NOT NULL AUTO_INCREMENT ,
+                                        `following` INT NOT NULL ,
+                                        `follower` INT NOT NULL ,
+                                        PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
