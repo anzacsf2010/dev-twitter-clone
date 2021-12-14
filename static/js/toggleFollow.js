@@ -1,6 +1,6 @@
 'use strict'
 
-$('.ToggleFollow').click( () => {
+$('.ToggleFollow').click( function() => {
     var id = $(this).data('id');
     $.ajax({
         type: "POST",
