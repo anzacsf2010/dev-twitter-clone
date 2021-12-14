@@ -9,10 +9,8 @@ $('.ToggleFollow').click( function() => {
         success: (result) => {
             if (result === "FOLLOW") {
                 $("a[data-id='" + id + "']").html('Follow');
-                console.log(result);
             } else if (result === "UNFOLLOW") {
                 $("a[data-id='" + id + "']").html('Unfollow');
-                console.log(result);
             }
         }
     });
