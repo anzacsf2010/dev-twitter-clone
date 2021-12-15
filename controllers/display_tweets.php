@@ -12,7 +12,7 @@
             $where_clause = $no_clause;
         } else if ($type == "following") {
             $id = mysqli_real_escape_string($db_connection, $session_id);
-            $query = "SELECT * FROM `follows` WHERE `follower` = '$id' LIMIT 1;";
+            $query = "SELECT * FROM `follows` WHERE `follower` = '$id';";
             $result = mysqli_query($db_connection, $query);
             $where_clause = $no_clause;
             while ($row = mysqli_fetch_assoc($result)) {
